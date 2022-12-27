@@ -19,7 +19,8 @@ model_en2zh = AutoModelWithLMHead.from_pretrained(mode_name)
 tokenizer = AutoTokenizer.from_pretrained(mode_name)
 translation = pipeline("translation_en_to_zh", model=model_en2zh, tokenizer=tokenizer)
 meaning = translation(input_word, max_length=400)
-print("The meaning of the word: ", meaning[0]["translation_text"])
+meaning = meaning[0]["translation_text"]
+print("The meaning of the word: ", meaning)
 
 # TTS
 # tts-tacotron2-ljspeech
